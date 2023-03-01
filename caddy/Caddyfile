@@ -1,0 +1,41 @@
+{
+        #debug
+}
+(cloudflare) {
+        tls {
+                resolvers 1.1.1.1
+                dns cloudflare {$DNS_KEY}
+#		acme {
+#			disable_http_challenge
+#			disable_tlsalpn_challenge
+#		}
+        }
+}
+
+(logs) {
+        log {
+                level DEBUG
+                output file /home/sunny/caddy/arkmap/log_access.log {
+                        roll_size 100mb
+                        roll_keep 2
+                        roll_keep_for 72h
+                }
+        }
+}
+
+pihole.axi92.at {
+        import cloudflare
+        reverse_proxy 127.0.0.1:8080
+	rewrite / /admin
+}
+
+unifi.axi92.at {
+	import cloudflare
+	reverse_proxy /inform localhost:8081
+	reverse_proxy https://127.0.0.1:4443 {
+		transport http {
+			tls
+			tls_insecure_skip_verify
+		}
+	}
+}

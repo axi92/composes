@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+    unifi:
+        image: jacobalberty/unifi:v7.3
+        container_name: unifi
+        restart: unless-stopped
+        user: 'unifi'
+        ports:
+            - '8081:8080'
+            - '8443:8443'
+            - '3478:3478/udp'
+        environment:
+            - TZ=Europe/Vienna
+            - UNIFI_CORE_ENABLED=true
+        volumes:
+            - './unifi:/unifi'

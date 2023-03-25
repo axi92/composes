@@ -1,0 +1,20 @@
+version: '2.2'
+
+services:
+  zigbee2mqtt:
+    image: "koenkk/zigbee2mqtt:1.30.2"
+    restart: unless-stopped
+    ports:
+      - "8083:8080"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "./data:/app/data"
+      - "/run/udev:/run/udev:ro"
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+    environment:
+      CRYPTO_POLICY: "unlimited"
+    dns:
+      - 1.1.1.1
+#      - 192.168.0.100

@@ -1,0 +1,5 @@
+configuration.yaml
+coordinator_backup.json
+database.db
+log/
+state.json

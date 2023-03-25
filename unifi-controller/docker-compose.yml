@@ -6,7 +6,7 @@ services:
         restart: unless-stopped
         user: 'unifi'
         ports:
-            - '8081:8080'
+            - '8080:8080'
             - '8443:8443'
             - '3478:3478/udp'
         environment:

@@ -1,0 +1,16 @@
+version: "3"
+
+# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+services:
+  mqtt:
+    container_name: mqtt
+    hostname: mqtt
+    image: eclipse-mosquitto:2.0.15
+    ports:
+      - "1883:1883"
+    environment:
+      TZ: 'Europe/Vienna'
+    # Volumes store your data between container upgrades
+    volumes:
+      - './mosquitto.conf:/mosquitto/config/mosquitto.conf'
+    restart: unless-stopped

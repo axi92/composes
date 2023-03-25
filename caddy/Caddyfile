@@ -25,17 +25,28 @@
 
 pihole.axi92.at {
         import cloudflare
-        reverse_proxy 127.0.0.1:8080
+        reverse_proxy 127.0.0.1:8085
 	rewrite / /admin
 }
 
 unifi.axi92.at {
 	import cloudflare
-	reverse_proxy /inform localhost:8081
+	reverse_proxy /inform localhost:8080
 	reverse_proxy https://127.0.0.1:4443 {
 		transport http {
 			tls
 			tls_insecure_skip_verify
 		}
+	}
+}
+
+ytdl.axi92.at {
+	import cloudflare
+	handle {
+		reverse_proxy 127.0.0.1:3033
+	}
+	handle_path /dl/* {
+		root * /home/axi92/composes/yt-dlp-web-ui/downloads
+		file_server browse
 	}
 }

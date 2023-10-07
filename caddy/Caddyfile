@@ -50,3 +50,8 @@ ytdl.axi92.at {
 		file_server browse
 	}
 }
+
+localvw.axi92.at {
+        import cloudflare
+        reverse_proxy 127.0.0.1:8087
+}

@@ -4,7 +4,7 @@ services:
   yt-dlp-web-ui:
     container_name: yt-dlp-web-ui
     hostname: yt-dlp-web-ui
-    image: ghcr.io/marcopeocchi/yt-dlp-web-ui:v2.0.8
+    image: ghcr.io/marcopeocchi/yt-dlp-web-ui:v3.0.0
     ports:
       - "3033:3033/tcp"
     environment:

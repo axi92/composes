@@ -1,0 +1,14 @@
+services:
+  grocy:
+    image: linuxserver/grocy:4.2.0
+    hostname: grocy
+    container_name: grocy
+    volumes:
+      - ./config:/config
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Europe/Vienna'
+    ports:
+      - 9283:80
+    restart: unless-stopped

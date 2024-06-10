@@ -13,7 +13,7 @@ services:
       - 127.0.0.1:9283:80
     restart: unless-stopped
   barcodebuddy:
-    image: f0rc3/barcodebuddy-docker:v1.8.1.4
+    image: f0rc3/barcodebuddy:v1.8.1.8
     hostname: barcodebuddy
     container_name: barcodebuddy
     environment:

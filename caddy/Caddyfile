@@ -61,7 +61,7 @@ grocy.axi92.at {
     reverse_proxy 127.0.0.1:9283
 }
 
-barcodebuddy.axi92.at {
+barcode.axi92.at {
     import cloudflare
     reverse_proxy 127.0.0.1:9284
 }

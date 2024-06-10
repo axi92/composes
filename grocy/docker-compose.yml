@@ -12,3 +12,14 @@ services:
     ports:
       - 127.0.0.1:9283:80
     restart: unless-stopped
+  barcodebuddy:
+    image: f0rc3/barcodebuddy-docker:v1.8.1.4
+    hostname: barcodebuddy
+    container_name: barcodebuddy
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Europe/Vienna'
+    ports:
+      - 127.0.0.1:9284:80
+    restart: unless-stopped

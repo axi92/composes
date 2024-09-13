@@ -32,6 +32,7 @@ services:
         kill @e[type=minecraft:boat]
       RCON_CMDS_STARTUP:  |-
         gamerule doFireTick false
+        gamerule keepInventory true
       MEMORY: 10G
       ENABLE_ROLLING_LOGS: true
     volumes:

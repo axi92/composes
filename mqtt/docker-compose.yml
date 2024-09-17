@@ -5,7 +5,7 @@ services:
   mqtt:
     container_name: mqtt
     hostname: mqtt
-    image: eclipse-mosquitto:2.0.15
+    image: eclipse-mosquitto:2.0.18
     ports:
       - "1883:1883"
     environment:

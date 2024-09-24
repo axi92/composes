@@ -14,6 +14,11 @@ services:
       TYPE: AUTO_CURSEFORGE
       CF_API_KEY: ${CF_API_KEY}
       CF_PAGE_URL: 'https://www.curseforge.com/minecraft/modpacks/tnp-limitless-8'
+      CF_EXCLUDE_MODS: 394468,447673,1103431,511319
+      # 394468 = sodium
+      # 447673 = Sodium Extra
+      # 1103431 = Sodium/Embeddium Options API
+      # 511319 = Reese's Sodium Options
       MAX_WORLD_SIZE: 10000
       ENABLE_COMMAND_BLOCK: false
       FORCE_GAMEMODE: true

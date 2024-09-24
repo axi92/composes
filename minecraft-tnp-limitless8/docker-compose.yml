@@ -6,19 +6,15 @@ services:
     ports:
       - "25565:25565"
     environment:
+      TYPE: NEOFORGE
+      NEOFORGE_VERSION: 21.1.54
+      VERSION: 1.21.1
+      GENERIC_PACK: /downloads/ServerFiles.zip
       SERVER_NAME: "axi92's Server"
       EULA: true
       ICON: 'https://avatars.githubusercontent.com/u/1394837?v=4'
       OVERRIDE_ICON: true
       MAX_PLAYERS: 8
-      TYPE: AUTO_CURSEFORGE
-      CF_API_KEY: ${CF_API_KEY}
-      CF_PAGE_URL: 'https://www.curseforge.com/minecraft/modpacks/tnp-limitless-8'
-      CF_EXCLUDE_MODS: 394468,447673,1103431,511319
-      # 394468 = sodium
-      # 447673 = Sodium Extra
-      # 1103431 = Sodium/Embeddium Options API
-      # 511319 = Reese's Sodium Options
       MAX_WORLD_SIZE: 10000
       ENABLE_COMMAND_BLOCK: false
       FORCE_GAMEMODE: true
@@ -43,7 +39,7 @@ services:
     volumes:
       # attach the relative directory 'data' to the container's /data path
       - ./data:/data
-      # - ./downloads:/downloads
+      - ./downloads:/downloads
     dns:
       - 1.1.1.1
     deploy:

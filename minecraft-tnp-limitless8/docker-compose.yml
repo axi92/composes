@@ -7,7 +7,7 @@ services:
       - "25565:25565"
     environment:
       TYPE: NEOFORGE
-      NEOFORGE_VERSION: 21.1.54
+      NEOFORGE_VERSION: 21.1.65
       VERSION: 1.21.1
       GENERIC_PACK: /downloads/ServerFiles.zip
       SERVER_NAME: "axi92's Server"

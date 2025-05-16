@@ -25,3 +25,8 @@ services:
       - 193.110.81.0
       - 185.253.5.0
       #- 1.1.1.1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "3"

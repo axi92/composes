@@ -1,16 +1,22 @@
-version: '3.3'
+name: unifi
 services:
-    unifi:
-        image: jacobalberty/unifi:v9.0.114
-        container_name: unifi
-        restart: unless-stopped
-        user: 'unifi'
-        ports:
-            - '8080:8080'
-            - '8443:8443'
-            - '3478:3478/udp'
-        environment:
-            - TZ=Europe/Vienna
-            - UNIFI_CORE_ENABLED=true
-        volumes:
-            - './unifi:/unifi'
+  controller:
+    image: jacobalberty/unifi:${VERSION}
+    container_name: unifi
+    restart: unless-stopped
+    user: 'unifi'
+    ports:
+        - '8080:8080'
+        - '8443:8443'
+        - '3478:3478/udp'
+    environment:
+        - TZ=Europe/Vienna
+        - UNIFI_CORE_ENABLED=true
+    volumes:
+        - './unifi:/unifi'
+    env_file:
+      - .env
+    logging:
+      options:
+        max-size: 100m
+        max-file: 1

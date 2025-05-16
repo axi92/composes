@@ -1,0 +1,27 @@
+name: vaultwarden
+services:
+  server:
+    env_file:
+      - .env
+    volumes:
+      - ./data/:/data/
+    ports:
+      - ${LOCAL_BINDING}:80
+    restart: always
+    logging:
+      options:
+        max-size: 100m
+        max-file: 3
+    image: vaultwarden/server:${VERSION}
+    environment:
+      - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED}
+      - DOMAIN=${DOMAIN}
+      - INVITATIONS_ALLOWED=${INVITATIONS_ALLOWED}
+      - YUBICO_CLIENT_ID=${YUBICO_CLIENT_ID}
+      - YUBICO_SECRET_KEY=${YUBICO_SECRET_KEY}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_FROM=${SMTP_FROM}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_SECURITY=${SMTP_SECURITY}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}

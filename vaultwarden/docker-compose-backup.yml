@@ -1,0 +1,21 @@
+name: vaultwarden
+services:
+  backup:
+    image: ttionya/vaultwarden-backup:1.21.3
+    env_file:
+      - .env
+    restart: always
+    environment:
+      - RCLONE_REMOTE_NAME=${RCLONE_REMOTE_NAME}
+      - RCLONE_REMOTE_DIR=${RCLONE_REMOTE_DIR}
+      - CRON=${CRON}
+      - ZIP_ENABLE=${ZIP_ENABLE}
+      - ZIP_PASSWORD=${ZIP_PASSWORD}
+      - ZIP_TYPE=${ZIP_TYPE}
+    volumes:
+      - ./data/:/bitwarden/data/
+      - vaultwarden-rclone-data:/config/
+    logging:
+      options:
+        max-size: 100m
+        max-file: 3

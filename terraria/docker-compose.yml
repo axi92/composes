@@ -4,10 +4,10 @@ services:
   terraria:
     image: ghcr.io/beardedio/terraria:vanilla-1.4.4.9
     ports:
-      - '127.0.0.1:7777:7777'
+      - '7777:7777'
     restart: unless-stopped
-    environment:
-      - world=<world_file_name>.wld
+    env_file:
+      - ./.env
     volumes:
       - ./config:/config
     tty: true

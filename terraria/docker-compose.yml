@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   terraria:
     image: ghcr.io/beardedio/terraria:vanilla-1.4.4.9

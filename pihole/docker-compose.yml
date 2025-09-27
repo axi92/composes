@@ -13,8 +13,6 @@ services:
     #  - "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
       - "8085:80/tcp"
     environment:
-      # Set a password to access the web interface. Not setting one will result in a random password being assigned
-      FTLCONF_webserver_api_password: 'pihole'
       # If using Docker's default `bridge` network setting the dns listening mode should be set to 'all'
       FTLCONF_dns_listeningMode: 'all'
     # Volumes store your data between container upgrades

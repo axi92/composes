@@ -3,7 +3,9 @@ services:
   pihole:
     container_name: pihole
     hostname: pihole
-    image: pihole/pihole:2024.01.0
+    image: pihole/pihole:${IMAGE_VERSION:-latest}
+    env_file:
+      - .env
     # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
     ports:
       - "53:53/tcp"

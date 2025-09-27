@@ -19,4 +19,8 @@ services:
     logging:
       options:
         max-size: 100m
-        max-file: 1
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"       # Limit to 50% of a single CPU
+          memory: "1G"     # Limit memory to 1 GB

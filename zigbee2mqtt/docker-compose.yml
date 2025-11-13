@@ -1,6 +1,6 @@
 services:
   zigbee2mqtt:
-    image: "koenkk/zigbee2mqtt:1.40.1"
+    image: "koenkk/zigbee2mqtt:2.6.3"
     restart: always
     ports:
       - "8083:8080"
